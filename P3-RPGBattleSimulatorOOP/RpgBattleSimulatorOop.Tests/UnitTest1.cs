@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using P3_RPGBattleSimulatorOOP;
+using P3_RPGBattleSimulatorOOP.Models;
 
 namespace RpgBattleSimulatorOop.Tests;
 
@@ -19,9 +21,9 @@ public class GameWinLossMechanics
         Game game = new Game();
         
         // call the 'who-won' function
-        GameWinner winner = game.RoundWinner(playerHealth, opponentHealth);
+        GameWinner winner = game.DetermineRoundWinner(playerHealth, opponentHealth);
         
         // does who won match who should have won?
-        Assert.AreEqual(expectedWinner, winner);
+        Assert.That(expectedWinner, Is.EqualTo(winner));
     }
 }

@@ -10,7 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="src\" />
       <Folder Include="RpgBattleSimulatorOop.Tests\" />
     </ItemGroup>
 
