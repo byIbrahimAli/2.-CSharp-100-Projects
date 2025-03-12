@@ -4,7 +4,7 @@ namespace P3_RPGBattleSimulatorOOP;
 
 public class Game
 {
-    public GameWinner DetermineRoundWinner(int playerHealth, int opponentHealth)
+    public GameWinner DetermineWinner(int playerHealth, int opponentHealth)
     {
         if (playerHealth == 0 && opponentHealth == 0)
         {
@@ -18,7 +18,7 @@ public class Game
         }
         else
         {
-            throw new Exception("Round has not ended as no player has reached 0");
+            return GameWinner.GameInProgress;
         }
     }
 }

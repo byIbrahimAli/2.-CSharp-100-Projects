@@ -5,4 +5,5 @@ public enum GameWinner
     Player,
     Opponent,
     Tie,
+    GameInProgress,
 }
