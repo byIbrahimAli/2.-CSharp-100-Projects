@@ -15,6 +15,7 @@ public class GameWinLossMechanics
     [TestCase(100, 0, GameWinner.Player)]
     [TestCase(0, 3, GameWinner.Opponent)]
     [TestCase(0, 0, GameWinner.Tie)]
+    [TestCase(25, 25, GameWinner.GameInProgress)]
     public void Winner_Calculated_Correctly(int playerHealth, int  opponentHealth, GameWinner expectedWinner)
     {
         // spin up a game
