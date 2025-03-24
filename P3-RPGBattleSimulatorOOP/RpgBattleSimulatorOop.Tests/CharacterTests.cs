@@ -1,6 +1,8 @@
 
 
+using P3_RPGBattleSimulatorOOP.BattleSystem;
 using P3_RPGBattleSimulatorOOP.Characters;
+using P3_RPGBattleSimulatorOOP.Characters.Monsters;
 using P3_RPGBattleSimulatorOOP.Characters.PlayableCharacters;
 
 namespace RpgBattleSimulatorOop.Tests;
@@ -46,13 +48,11 @@ public class CharacterTests
         var availableMonsters = new List<Monster>
         {
             new MumsTomahawkSlipper(),
-            new L96A1StraightBolt(),
-            new Megatron1Point1Eco()
         };
 
         // generate monster
         var battleManager = new BattleManager(availableMonsters);
-        var generatedMonster = battleManager.GenerateRandomMonster();
+        var generatedMonster = battleManager.GetRandomMonster();
         
         // expected character attributes
         string expectedName = "Mums Tomahawk Slipper";
@@ -63,11 +63,12 @@ public class CharacterTests
 
         // has the beast been instantiated with the correct attributes?
         Assert.That(generatedMonster, Is.Not.Null, "Random-generated-monster should return a valid character.");
-        Assert.That(generatedMonster, Is.InstanceOf<(Monster)>(), "Character generated should be a Monster.");
+        Assert.That(generatedMonster, Is.InstanceOf<Monster>(),  "Character generated should be a Monster.");
         Assert.That(availableMonsters.Contains(generatedMonster), Is.True, "Generated monster should be from expected list..");
         Assert.That(generatedMonster!.Name, Is.EqualTo(expectedName), "Monster name should match selection.");
         Assert.That(generatedMonster.Health, Is.EqualTo(expectedHealth), "Monster health should match expected health.");
         Assert.That(generatedMonster.AttackPower, Is.EqualTo(expectedAttackPower), "Monster attack power should match expected attack power.");
+        Assert.That(generatedMonster.DefencePower,  Is.EqualTo(expectedDefencePower),  "Monster defence power should match expected defence power.");
         Assert.That(generatedMonster.RechargeRateInRounds,  Is.EqualTo(expectedRechargeRateInRounds),  "Monster attack-recharge-rate should match expected attack-recharge-rate.");
     }
 }
